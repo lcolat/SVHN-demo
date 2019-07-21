@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Deep Learning Framework Project</title>
+</head>
+<body style="text-align: center;">
+    <form action="/start" method="post">
+        <div style="display: flex;justify-content: center">
+            <div>
+                <h2>Model 1</h2>
+                Conv2D
+                <p>7 hidden Layers</p>
+                <p>3 Conv2D layers</p>
+                <p>profondeur: 16</p>
+                <p>chevauchement: 3</p>
+                <p>padding: same activation: relu</p>
+                <p>3 AveragePooling2D Layers</p>
+                <p>1 Flatten layer</p>
+                <p>1024 inputs</p>
+                <P>10 outputs</P>
+                <p>activation: softmax</p>
+                <p>loss: categorical_crossentropy</p>
+                <p>optimizer: adam</p>
+                <p>epochs: 100</p>
+                <p>batch_size: 4096</p>
+            </div>
+            <div>
+                <h2>Model 2</h2>
+                Res Net
+                <p>20 hidden layers</p>
+                <p>profondeur: 32</p>
+                <p>activation: LeakyReLU</p>
+                <p>1024 inputs</p>
+                <P>10 outputs</P>
+                <p>loss: categorical_crossentropy</p>
+                <p>optimizer: adam</p>
+                <p>epochs: 100</p>
+                <p>batch_size: 4096</p>
+            </div>
+        </div>
+        <select name="select1">
+            {%for model in models %}
+            <option value="{{model.value}}">{{model.choix}}</option>
+            {%endfor%}
+        </select>
+
+        </br>
+        </br>
+        <img src="{{ url_for('static', filename=images[0][0]) }}" width="100" height="100">
+        <img src="{{ url_for('static', filename=images[1][0]) }}" width="100" height="100">
+        <img src="{{ url_for('static', filename=images[2][0]) }}" width="100" height="100">
+        <img src="{{ url_for('static', filename=images[3][0]) }}" width="100" height="100">
+        <img src="{{ url_for('static', filename=images[4][0]) }}" width="100" height="100">
+        <img src="{{ url_for('static', filename=images[5][0]) }}" width="100" height="100">
+        </br>
+        </br>
+        <select name="select2">
+            {%for img in imgs %}
+            <option value="{{img.value}}">{{img.name}}</option>
+            {%endfor%}
+        </select>
+        </br>
+        </br>
+        <button type="submit" value="submit">Go</button>
+    </form>
+</body>
+</html>
